@@ -1,0 +1,15 @@
+environment: prod
+replicaCount: 2
+
+resources:
+  limits:
+    cpu: 1
+    memory: 1024Mi
+  requests:
+    memory: 768Mi
+
+configmap:
+  spring.profiles.active: prod,kubernetes
+
+sealedSecrets:
+  auth.basic.api.password: base64EncodedValueHere

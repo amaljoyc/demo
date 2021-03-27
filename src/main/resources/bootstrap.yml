@@ -1,0 +1,13 @@
+spring:
+  profiles:
+    active: local
+  application:
+    name: demo
+  cloud:
+    kubernetes:
+      secrets:
+        paths:
+          - /etc/secrets
+      config:
+        sources:
+          - name: demo

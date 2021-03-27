@@ -1,0 +1,19 @@
+app:
+  name: demo
+  contextRoot: demo
+  port: 8080
+  livenessProbe: /actuator/health/liveness
+  readinessProbe: /actuator/health/readiness
+  management:
+    port: 8081
+
+namespace: default
+hostnamePrefix: demo
+
+resources:
+  limits:
+    cpu: 1
+    memory: 1024Mi
+  requests:
+    cpu: 0.2
+    memory: 512Mi
