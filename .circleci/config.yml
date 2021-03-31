@@ -32,6 +32,7 @@ jobs:
             - v1-dependencies-
 
       #- run: ./gradlew dependencies
+      - run: echo $REGISTRY_USERNAME
 
       - save_cache:
           paths:

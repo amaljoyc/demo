@@ -81,8 +81,8 @@ configure<com.google.cloud.tools.jib.gradle.JibExtension> {
     }
     to {
         image = "amaljoyc/${project.name}:${if (version != "unspecified") "$version" else "latest"}"
-        /*auth.username = System.getenv("REGISTRY_USERNAME")
-        auth.password = System.getenv("REGISTRY_PASSWORD")*/
+        auth.username = System.getenv("REGISTRY_USERNAME")
+        auth.password = System.getenv("REGISTRY_PASSWORD")
     }
     container {
         ports = listOf("8080", "8081")
