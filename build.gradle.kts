@@ -10,7 +10,7 @@ plugins {
     id("org.jmailen.kotlinter") version "3.4.0"
 
     application
-    id("com.google.cloud.tools.jib") version "2.7.0"
+    id("com.google.cloud.tools.jib") version "2.8.0"
 }
 
 group = "com.example"
