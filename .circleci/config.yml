@@ -39,4 +39,4 @@ jobs:
             - ~/.gradle
           key: v1-dependencies-{{ checksum "build.gradle" }}
 
-      - run: ./gradlew clean build --build-cache -Djdk.tls.client.protocols=TLSv1.2
+      - run: ./gradlew clean build --build-cache -Djib.allowInsecureRegistries=true
