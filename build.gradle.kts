@@ -79,15 +79,15 @@ configure<com.google.cloud.tools.jib.gradle.JibExtension> {
     from {
         image = "adoptopenjdk/openjdk15-openj9:alpine-slim"
         auth {
-            username = "amaljoyc"
-            password = "pani@pali"
+            username = System.getenv("REGISTRY_USERNAME")
+            password = System.getenv("REGISTRY_PASSWORD")
         }
     }
     to {
         image = "amaljoyc/${project.name}:${if (version != "unspecified") "$version" else "latest"}"
         auth {
-            username = project.property("registry.username") as String
-            password = project.property("registry.password") as String
+            username = System.getenv("REGISTRY_USERNAME")
+            password = System.getenv("REGISTRY_PASSWORD")
         }
     }
     container {

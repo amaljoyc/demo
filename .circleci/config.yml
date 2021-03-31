@@ -39,4 +39,4 @@ jobs:
             - ~/.gradle
           key: v1-dependencies-{{ checksum "build.gradle" }}
 
-      - run: ./gradlew clean build --build-cache -Pregistry.username=$REGISTRY_USERNAME -Pregistry.password=$REGISTRY_PASSWORD
+      - run: ./gradlew clean build --build-cache
