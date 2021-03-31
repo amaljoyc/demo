@@ -36,7 +36,7 @@ jobs:
 
       - run: echo $REGISTRY_USERNAME
 
-      - run: ./gradlew clean build --build-cache
+      - run: ./gradlew clean build -x test --build-cache
 
       - save_cache:
           paths:
