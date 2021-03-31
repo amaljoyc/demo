@@ -33,11 +33,10 @@ jobs:
 
       #- run: ./gradlew dependencies
       - run: echo $REGISTRY_USERNAME
-      - run: echo $UNKNOWN_ENV_VAR
 
       - save_cache:
           paths:
             - ~/.gradle
           key: v1-dependencies-{{ checksum "build.gradle" }}
 
-      - run: ./gradlew clean build --build-cache
+      - run: ./gradlew clean build --build-cache -Pregistry.username=$REGISTRY_USERNAME -Pregistry.password=$REGISTRY_PASSWORD
