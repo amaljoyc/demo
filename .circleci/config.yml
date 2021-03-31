@@ -7,7 +7,7 @@ jobs:
   build:
     docker:
       # specify the version you desire here
-      - image: circleci/openjdk:15-jdk-buster
+      - image: adoptopenjdk/openjdk15-openj9:alpine-slim
 
       # Specify service dependencies here if necessary
       # CircleCI maintains a library of pre-built images
@@ -39,4 +39,4 @@ jobs:
             - ~/.gradle
           key: v1-dependencies-{{ checksum "build.gradle" }}
 
-      - run: ./gradlew clean build --build-cache -Djib.allowInsecureRegistries=true
+      - run: ./gradlew clean build --build-cache
