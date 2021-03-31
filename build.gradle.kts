@@ -78,6 +78,8 @@ tasks["build"].dependsOn(tasks["jib"])
 configure<com.google.cloud.tools.jib.gradle.JibExtension> {
     from {
         image = "adoptopenjdk/openjdk15-openj9:alpine-slim"
+        auth.username = System.getenv("REGISTRY_USERNAME")
+        auth.password = System.getenv("REGISTRY_PASSWORD")
     }
     to {
         image = "amaljoyc/${project.name}:${if (version != "unspecified") "$version" else "latest"}"
