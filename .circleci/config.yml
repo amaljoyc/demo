@@ -2,11 +2,11 @@
 #
 # Check https://circleci.com/docs/2.0/language-java/ for more details
 #
-version: 2
+version: 2.1
 jobs:
   build:
     machine: # executor type
-      image: ubuntu-2004:202010-01 # # recommended linux image - includes Ubuntu 20.04, docker 19.03.13, docker-compose 1.27.4
+      image: ubuntu-2004:202101-01 # comes with only JDK 11
 
     #docker:
       # specify the version you desire here
@@ -25,6 +25,14 @@ jobs:
       TERM: dumb
 
     steps:
+      - run:
+          name: Install OpenJDK 15
+          command: |
+            sudo apt-get update && sudo apt-get install openjdk-15-jdk
+            sudo update-alternatives --set java /usr/lib/jvm/java-15-openjdk-amd64/bin/java
+            sudo update-alternatives --set javac /usr/lib/jvm/java-15-openjdk-amd64/bin/javac
+            java -version
+
       - checkout
 
       # Download and cache dependencies
@@ -36,7 +44,7 @@ jobs:
 
       - run: echo $REGISTRY_USERNAME
 
-      - run: ./gradlew clean build -x test --build-cache
+      - run: ./gradlew clean build --build-cache
 
       - save_cache:
           paths:
