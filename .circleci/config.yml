@@ -31,12 +31,11 @@ jobs:
             # fallback to using the latest cache if no exact match is found
             - v1-dependencies-
 
-      #- run: ./gradlew dependencies
       - run: echo $REGISTRY_USERNAME
+
+      - run: ./gradlew clean build --build-cache
 
       - save_cache:
           paths:
             - ~/.gradle
           key: v1-dependencies-{{ checksum "build.gradle.kts" }}
-
-      - run: ./gradlew clean build --build-cache
