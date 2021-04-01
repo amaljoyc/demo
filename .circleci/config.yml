@@ -6,7 +6,7 @@ version: 2.1
 jobs:
   build:
     machine: # executor type
-      image: ubuntu-2004:202101-01 # comes with only JDK 11 (not using docker image as jib is not working with it for now due to missing certs)
+      image: ubuntu-2004:202101-01 # this ver comes with only JDK 11 (not using docker image as jib is not working with it for now due to missing certs)
 
     working_directory: ~/repo
 
@@ -48,11 +48,13 @@ jobs:
       # Specify service dependencies here if necessary
       # - image: circleci/postgres:9.4
     steps:
-      - run: echo "Just running another-job as a example"
+      - run: echo "Just running another-job as an example"
 
 workflows:
   version: 2.1
-  my-flow:
+  my-workflow:
     jobs:
       - build
-      - another-job
+      - another-job:
+          requires: # if we don't specify a requires, then this job will run in parallel to other jobs by default
+            - build
