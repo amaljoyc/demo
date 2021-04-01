@@ -49,3 +49,10 @@ jobs:
       # - image: circleci/postgres:9.4
     steps:
       - run: echo "Just running another-job as a example"
+
+workflows:
+  version: 2.1
+    my-flow:
+      jobs:
+        - build
+        - another-job
