@@ -52,7 +52,7 @@ jobs:
 
 workflows:
   version: 2.1
-    my-flow:
-      jobs:
-        - build
-        - another-job
+  my-flow:
+    jobs:
+      - build
+      - another-job
