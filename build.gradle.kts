@@ -32,6 +32,19 @@ repositories {
     mavenCentral()
 }
 
+/*repositories {
+    val artifactoryUrl = System.getenv("ARTIFACTORY_URL")
+    if (artifactoryUrl != null) {
+        maven {
+            url =  uri("${artifactoryUrl}/myrepo")
+            credentials {
+                username = System.getenv("ARTIFACTORY_USER")
+                password = System.getenv("ARTIFACTORY_PASS")
+            }
+        }
+    }
+}*/
+
 dependencies {
 
     // kotlin
